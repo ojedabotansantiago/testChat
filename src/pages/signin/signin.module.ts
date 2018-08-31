@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
+import { IonicPageModule, IonicModule } from 'ionic-angular';
 import { SigninPage } from './signin';
 
 @NgModule({
@@ -8,6 +8,7 @@ import { SigninPage } from './signin';
   ],
   imports: [
     IonicPageModule.forChild(SigninPage),
+    IonicModule.forRoot(SigninPage)
   ],
 })
 export class SigninPageModule {}

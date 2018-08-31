@@ -18,11 +18,13 @@ import * as firebase from 'Firebase';
 export class RoomPage {
   rooms = [];
   ref = firebase.database().ref('chatrooms/');
+  userLoggedData: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.userLoggedData = this.navParams.get('userLoggedData') as string;
     this.ref.on('value', resp => {
       this.rooms = [];
-      this.rooms = this.snapshotToArray(resp);
+      this.rooms = snapshotToArray(resp);
     });
   }
 
@@ -30,20 +32,9 @@ export class RoomPage {
     console.log('ionViewDidLoad RoomPage');
   }
 
-  snapshotToArray = snapshot => {
-    let returnArr = [];
-
-    snapshot.forEach(childSnapshot => {
-      let item = childSnapshot.val();
-      item.key = childSnapshot.key;
-      returnArr.push(item);
-    });
-
-    return returnArr;
-  };
 
   addRoom() {
-    this.navCtrl.push(AddRoomPage);
+    this.navCtrl.push(AddRoomPage, {userLoggedData : this.userLoggedData } );
   }
   
   joinRoom(key) {
@@ -53,3 +44,14 @@ export class RoomPage {
     });
   }
 }
+export const snapshotToArray = snapshot => {
+  let returnArr = [];
+
+  snapshot.forEach(childSnapshot => {
+      let item = childSnapshot.val();
+      item.key = childSnapshot.key;
+      returnArr.push(item);
+  });
+
+  return returnArr;
+};

@@ -14,13 +14,11 @@ export class HomePage {
   roomkey: string;
   nickname: string;
   offStatus: boolean = false;
+  userLoggedData: string;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.logic();
-  }
-
-  public logic() {
     this.roomkey = this.navParams.get('key') as string;
     this.nickname = this.navParams.get('nickname') as string;
+    this.userLoggedData = this.navParams.get('userLoggedData') as string;
     this.data.type = 'message';
     this.data.nickname = this.nickname;
 
@@ -41,7 +39,7 @@ export class HomePage {
       .ref('chatrooms/' + this.roomkey + '/chats')
       .on('value', resp => {
         this.chats = [];
-        this.chats = this.snapshotToArray(resp);
+        this.chats = snapshotToArray(resp);
         setTimeout(() => {
           if (this.offStatus === false) {
             this.content.scrollToBottom(300);
@@ -51,41 +49,46 @@ export class HomePage {
   }
 
   public sendMessage() {
-    let newData = firebase.database().ref('chatrooms/'+this.roomkey+'/chats').push();
+    let newData = firebase
+      .database()
+      .ref('chatrooms/' + this.roomkey + '/chats')
+      .push();
     newData.set({
-      type:this.data.type,
-      user:this.data.nickname,
-      message:this.data.message,
-      sendDate:Date()
+      type: this.data.type,
+      user: this.data.nickname,
+      message: this.data.message,
+      sendDate: Date()
     });
     this.data.message = '';
   }
 
   public exitChat() {
-    let exitData = firebase.database().ref('chatrooms/'+this.roomkey+'/chats').push();
+    let exitData = firebase
+      .database()
+      .ref('chatrooms/' + this.roomkey + '/chats')
+      .push();
     exitData.set({
-      type:'exit',
-      user:this.nickname,
-      message:this.nickname+' has exited this room.',
-      sendDate:Date()
+      type: 'exit',
+      user: this.nickname,
+      message: this.nickname + ' has exited this room.',
+      sendDate: Date()
     });
-  
+
     this.offStatus = true;
-  
+
     this.navCtrl.setRoot(RoomPage, {
-      nickname:this.nickname
+      nickname: this.nickname
     });
   }
-
-  public snapshotToArray = snapshot => {
-    let returnArr = [];
-
-    snapshot.forEach(childSnapshot => {
-        let item = childSnapshot.val();
-        item.key = childSnapshot.key;
-        returnArr.push(item);
-    });
-
-    return returnArr;
-};
 }
+export const snapshotToArray = snapshot => {
+  let returnArr = [];
+
+  snapshot.forEach(childSnapshot => {
+    let item = childSnapshot.val();
+    item.key = childSnapshot.key;
+    returnArr.push(item);
+  });
+
+  return returnArr;
+};
