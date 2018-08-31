@@ -10,17 +10,14 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ConstantsProvider {
   public static  fireBaseConfig = {
-    apiKey: 'YOUR_APIKEY',
-    authDomain: 'YOUR_AUTH_DOMAIN',
-    databaseURL: 'YOUR_DATABASE_URL',
-    projectId: 'YOUR_PROJECT_ID',
-    storageBucket: 'YOUR_STORAGE_BUCKET',
+    apiKey: "AIzaSyCTWQHz5gcvDglHkoMgt0_kgELrtNlfz5g",
+    authDomain: "myfabulouschat.firebaseapp.com",
+    databaseURL: "https://myfabulouschat.firebaseio.com",
+    projectId: "myfabulouschat",
+    storageBucket: "myfabulouschat.appspot.com",
+    messagingSenderId: "886889505076"
   };
-
-
   constructor(public http: HttpClient) {
     console.log('Hello ConstantsProvider Provider');    
-  }
-
-  
+  }  
 }
