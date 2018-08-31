@@ -41,4 +41,15 @@ export class RoomPage {
 
     return returnArr;
   };
+
+  addRoom() {
+    this.navCtrl.push(AddRoomPage);
+  }
+  
+  joinRoom(key) {
+    this.navCtrl.setRoot(HomePage, {
+      key:key,
+      nickname:this.navParams.get("nickname")
+    });
+  }
 }

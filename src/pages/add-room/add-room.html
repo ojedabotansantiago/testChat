@@ -1,19 +1,20 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Room</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="addRoom()">
-        <ion-icon name="add-circle"></ion-icon>
-      </button>
-    </ion-buttons>
+    <ion-title>AddRoom</ion-title>
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let room of rooms">
-      {{room.roomname}}
-      <ion-icon name="chatboxes" item-end (click)="joinRoom(room.key)"></ion-icon>
-    </ion-item>
-  </ion-list>
+  <form (ngSubmit)="addRoom()">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Enter Room Name</ion-label>
+        <ion-input type="text" [(ngModel)]="data.roomname" name="roomname" required=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <button ion-button full round color="secondary" type="submit">Add</button>
+      </ion-item>
+    </ion-list>
+  </form>
 </ion-content>
