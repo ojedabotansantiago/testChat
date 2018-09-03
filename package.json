@@ -24,6 +24,12 @@
     "@ionic-native/splash-screen": "~4.12.0",
     "@ionic-native/status-bar": "~4.12.0",
     "@ionic/storage": "2.1.3",
+    "cordova-android": "6.3.0",
+    "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-ionic-keyboard": "^2.1.2",
+    "cordova-plugin-ionic-webview": "^2.1.0",
+    "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-plugin-whitelist": "^1.3.3",
     "cordova-support-google-services": "^1.2.1",
     "firebase": "^5.4.1",
     "ionic-angular": "3.9.2",
@@ -40,7 +46,15 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-support-google-services": {}
-    }
+      "cordova-support-google-services": {},
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-keyboard": {}
+    },
+    "platforms": [
+      "android"
+    ]
   }
 }

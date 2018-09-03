@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "886889505076",
+    "firebase_url": "https://myfabulouschat.firebaseio.com",
+    "project_id": "myfabulouschat",
+    "storage_bucket": "myfabulouschat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:886889505076:android:21ce44836ec17665",
+        "android_client_info": {
+          "package_name": "io.fire.base.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "886889505076-shujcbjkvpt2nluups8tbd4tmlnn354r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.fire.base.chat",
+            "certificate_hash": "c4ff3f12b6f569e3a6e7af59bc0f67da17f35fc1"
+          }
+        },
+        {
+          "client_id": "886889505076-vv3cpf8trb3lkgc5c84tmemicv4ar6tq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0AeRqI_kylyWtxwIG1cLP2_1_jgj17nE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "886889505076-vv3cpf8trb3lkgc5c84tmemicv4ar6tq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
