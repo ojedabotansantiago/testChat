@@ -11,12 +11,16 @@ import { SigninPage } from '../pages/signin/signin';
 import { RoomPage } from '../pages/room/room';
 import { AddRoomPage } from '../pages/add-room/add-room';
 import { SigninPageModule } from '../pages/signin/signin.module';
+import { PushNotificationProvider } from '../providers/push-notification/push-notification';
+import { Push } from '@ionic-native/push';
+import { Device } from '@ionic-native/device';
 SigninPageModule
 @NgModule({
   declarations: [MyApp, HomePage, SigninPage, RoomPage, AddRoomPage],
   imports: [BrowserModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
   entryComponents: [MyApp, HomePage, SigninPage, RoomPage, AddRoomPage],
-  providers: [StatusBar, SplashScreen, { provide: ErrorHandler, useClass: IonicErrorHandler }, ConstantsProvider]
+  providers: [StatusBar, SplashScreen, Push, Device,{ provide: ErrorHandler, useClass: IonicErrorHandler }, ConstantsProvider,
+    PushNotificationProvider]
 })
 export class AppModule {}
